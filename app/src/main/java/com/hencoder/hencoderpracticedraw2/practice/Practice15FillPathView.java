@@ -29,12 +29,12 @@ public class Practice15FillPathView extends View {
     }
 
     {
-        path.moveTo(50, 100);
-        path.rLineTo(50, 100);
-        path.rLineTo(80, -150);
-        path.rLineTo(100, 100);
-        path.rLineTo(70, -120);
-        path.rLineTo(150, 80);
+        path.moveTo(25, 50);
+        path.rLineTo(25, 50);
+        path.rLineTo(40, -75);
+        path.rLineTo(50, 50);
+        path.rLineTo(35, -60);
+        path.rLineTo(75, 40);
 
         pathPaint.setStyle(Paint.Style.STROKE);
     }
@@ -45,37 +45,40 @@ public class Practice15FillPathView extends View {
 
         // 使用 Paint.getFillPath() 获取实际绘制的 Path
 
-        paint.setStyle(Paint.Style.FILL_AND_STROKE);
+        paint.setStyle(Paint.Style.STROKE);
         paint.setStrokeWidth(0);
         // 第一处：获取 Path
+       paint.getFillPath(path,path1);
         canvas.drawPath(path, paint);
 
         canvas.save();
-        canvas.translate(500, 0);
+        canvas.translate(250, 0);
         canvas.drawPath(path1, pathPaint);
         canvas.restore();
 
         canvas.save();
-        canvas.translate(0, 200);
+        canvas.translate(0, 100);
         paint.setStyle(Paint.Style.STROKE);
         // 第二处：设置 Style 为 STROKE 后再获取 Path
+        paint.getFillPath(path,path2);
         canvas.drawPath(path, paint);
         canvas.restore();
 
         canvas.save();
-        canvas.translate(500, 200);
+        canvas.translate(250, 100);
         canvas.drawPath(path2, pathPaint);
         canvas.restore();
 
         canvas.save();
-        canvas.translate(0, 400);
-        paint.setStrokeWidth(40);
+        canvas.translate(0, 200);
+        paint.setStrokeWidth(20);
         // 第三处：Style 为 STROKE 并且线条宽度为 40 时的 Path
+        paint.getFillPath(path,path3);
         canvas.drawPath(path, paint);
         canvas.restore();
 
         canvas.save();
-        canvas.translate(500, 400);
+        canvas.translate(250, 200);
         canvas.drawPath(path3, pathPaint);
         canvas.restore();
     }

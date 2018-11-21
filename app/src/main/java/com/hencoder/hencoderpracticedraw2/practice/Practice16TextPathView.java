@@ -2,6 +2,7 @@ package com.hencoder.hencoderpracticedraw2.practice;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.support.annotation.Nullable;
@@ -27,10 +28,9 @@ public class Practice16TextPathView extends View {
     }
 
     {
-        paint.setTextSize(120);
-
-        // 使用 Paint.getTextPath() 来获取文字的 Path
-
+        setLayerType(LAYER_TYPE_SOFTWARE, null);
+        paint.setTextSize(30);
+        paint.getTextPath(text,0,text.length(),50,150,textPath);
         pathPaint.setStyle(Paint.Style.STROKE);
     }
 
@@ -38,8 +38,9 @@ public class Practice16TextPathView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-        canvas.drawText(text, 50, 200, paint);
+        canvas.drawText(text, 50, 50, paint);
 
         canvas.drawPath(textPath, pathPaint);
+
     }
 }

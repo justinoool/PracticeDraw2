@@ -25,11 +25,11 @@ public class Practice11StrokeMiterView extends View {
     }
 
     {
-        paint.setStrokeWidth(40);
+        paint.setStrokeWidth(20);
         paint.setStyle(Paint.Style.STROKE);
 
-        path.rLineTo(200, 0);
-        path.rLineTo(-160, 120);
+        path.rLineTo(50, 0);
+        path.rLineTo(-80, 60);
     }
 
     @Override
@@ -38,16 +38,19 @@ public class Practice11StrokeMiterView extends View {
 
         canvas.save();
 
-        canvas.translate(100, 100);
+        canvas.translate(50, 50);
         // MITER 值：1
+        paint.setStrokeMiter(1);
         canvas.drawPath(path, paint);
 
-        canvas.translate(300, 0);
+        canvas.translate(100, 50);
         // MITER 值：2
+        paint.setStrokeMiter(2);
         canvas.drawPath(path, paint);
 
-        canvas.translate(300, 0);
+        canvas.translate(50, 100);
         // MITER 值：5
+        paint.setStrokeMiter(5);
         canvas.drawPath(path, paint);
 
         canvas.restore();
